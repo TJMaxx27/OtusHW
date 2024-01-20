@@ -1,7 +1,7 @@
-from src.Rectangle import Rectangle
-from src.Square import Square
-from src.Triangle import Triangle
-from src.Circle import Circle
+from OtusHW.src.Rectangle import Rectangle
+from OtusHW.src.Square import Square
+from OtusHW.src.Triangle import Triangle
+from OtusHW.src.Circle import Circle
 import pytest
 
 
@@ -63,11 +63,11 @@ def test_circle_zero_radius():
 
 @pytest.mark.parametrize(('figure1', 'figure2', 'expected_sum'),
                          [
-                             (Rectangle(3, 4, 'Rectangle'), Circle(5, 'Circle'), 0),
+                             (Rectangle(3, 4, 'Rectangle'), Circle(5, 'Circle'), 90.5),
                              (Triangle(3, 4, 5, 'Triangle'), Square(5), 31),
                              (Triangle(3, 3, 3, 'Triangle'), Triangle(4, 4, 5, 'Triangle'), 11.703)
                          ],
                          ids=['Rectangle_and_Circle', 'Triangle_and_Square', 'TriangleEquilateral_and_TriangleIsosceles'])
 def test_area_figure_sum(figure1, figure2, expected_sum):
-    result = figure1.add_area(figure2)
+    result = figure1.get_area() + figure2.get_area()
     assert round(result, 3) == round(expected_sum, 3)
