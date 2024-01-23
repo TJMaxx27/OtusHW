@@ -1,6 +1,6 @@
 import os
-import json
 import csv
+import json
 
 
 def get_path(file_name):
@@ -24,8 +24,8 @@ def distribute_books(books_data, users_data):
     total_books = len(books_copy)
     total_users = len(users_data)
     books_per_user, remaining_books = divmod(total_books, total_users)
-
     result_data = []
+
     for user in users_data:
         user_books = []
 
